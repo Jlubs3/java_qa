@@ -1,16 +1,36 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //Стоимость билета
-        int ticketPrice = 13676;
-        // Количество рублей, необходимых для одной бонусной мили
-        int rublesPerMile = 20;
-        // Расчёт количества бонусных миль (дробная часть отбрасывается автоматически при делении int)
-        int bonusMiles = ticketPrice / rublesPerMile;
+        BonusMilesService service = new BonusMilesService();
+        {   int price = 10_000;
+            int miles = service.calculate(price); // должно получиться 500
+            System.out.println(miles);
+        }
+        {
+            int price = 5_000; // 250 миль
+            int miles = service.calculate(price); // должно получиться 500
+            System.out.println(miles);
+        }
 
-        // Вывод результата
-        System.out.println("Начисленные мили: " + bonusMiles);
-
+        {
+            int price = 19_999; // 999 миль (19_999 / 20 = 999)
+            int miles = service.calculate(price); // должно получиться 500
+            System.out.println(miles);
+        }
+        {
+            int price = 19_999; // 999 миль (19_999 / 20 = 999)
+            int miles = service.calculate(price); // должно получиться 500
+            System.out.println(miles);
+        }
+        {
+            int price = 21; // 1 миля
+            int miles = service.calculate(price); // должно получиться 500
+            System.out.println(miles);
+        }
+        {
+            int price = 19; // 0 миль
+            int miles = service.calculate(price); // должно получиться 500
+            System.out.println(miles);
         }
     }
+}
+
