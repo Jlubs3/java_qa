@@ -12,3 +12,4 @@ public class Main {
         System.out.println("Индекс массы тела "+ service.index(1.65,59));
         }
     }
+
