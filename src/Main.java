@@ -2,15 +2,13 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //Стоимость билета
-        int ticketPrice = 13676;
-        // Количество рублей, необходимых для одной бонусной мили
-        int rublesPerMile = 20;
-        // Расчёт количества бонусных миль (дробная часть отбрасывается автоматически при делении int)
-        int bonusMiles = ticketPrice / rublesPerMile;
+        BodyMaxIndexService service = new BodyMaxIndexService();
 
-        // Вывод результата
-        System.out.println("Начисленные мили: " + bonusMiles);
+        System.out.println ("Рост, вес "+ "1.7/56");
+        System.out.println("Индекс массы тела"+ service.index(1.7,56));
+        System.out.println();
 
+        System.out.println ("Рост, вес "+ "1.65/59");
+        System.out.println("Индекс массы тела "+ service.index(1.65,59));
         }
     }
